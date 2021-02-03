@@ -1,13 +1,136 @@
+html,
 body {
+  min-height: 100vh;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* background-image: radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% ); */
+  /* background: #F8FAFF; */
+  background-color: lavender;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Oxygen", "Trebuchet MS", Tahoma, sans-serif;
+  color: #0a0e2a;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+a {
+  color: indianred;
+}
+
+.heading {
+  margin-top: 0;
+}
+
+.page {
+  margin: 0 auto;
+  padding: 48px 24px;
+  max-width: 960px;
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 36px;
+}
+
+.post-preview {
+  background: snow;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.post-preview__img {
+  max-width: 100%;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.post-preview__text {
+  padding: 16px;
+}
+
+.link-wrapper {
+  margin-bottom: 32px;
+}
+
+.link-wrapper a {
+  font-weight: bold;
+}
+
+.post {
+  background: snow;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.post__img {
+  max-width: 100%;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  margin-bottom: 32px;
+}
+
+/* -------------------------------------------------- */
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  width: 66.66vw;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: rgb(0 0 0 / 10%) 0 7px 25px 0;
+}
+
+li {
+  background-color: rgba(214, 214, 214, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+li:last-child {
+  margin-bottom: 0px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #666;
+  border-radius: 20px;
+}
+
+.row {
+  width: 100%;
+  height: 8px;
+  background-color: #999;
+  border-radius: 10px;
+  margin-top: 12px;
 }

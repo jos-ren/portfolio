@@ -1,5 +1,5 @@
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
-import { content } from "../content.js";
+import { content } from "../server.js";
 import React, { useState } from "react";
 
 const transition = { duration: 0.5, ease: "easeInOut" };
@@ -10,42 +10,11 @@ const postVariants = {
     exit: { y: -100, opacity: 0, transition }
 };
 
-const items = [0, 1, 2, 3, 4, 5, 6];
-
-function Item() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleOpen = () => setIsOpen(!isOpen);
-
-    return (
-        <motion.li layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
-            <motion.div className="avatar" layout />
-            <AnimatePresence>{isOpen && <Content />}</AnimatePresence>
-        </motion.li>
-    );
-}
-
-function Content() {
-    return (
-        <motion.div
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-        >
-            <div className="row" />
-            <div className="row" />
-
-        </motion.div>
-    );
-}
-
-
-
 const Post = ({ match }) => {
     const id = Number(match.params.id);
-
-    const { title, overview, role, team, tools, imgSrc } = content[id];
+    const { title, role, overview, imgSrc, team, tools } = content[id];
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleOpen = () => setIsOpen(!isOpen);
 
     return (
         <motion.div
@@ -57,20 +26,31 @@ const Post = ({ match }) => {
         >
             <div className="post">
                 <img className="post__img" src={imgSrc} alt={title} />
-                <h1 className="heading">{title}</h1>
-                <p><b>Role: </b>{role}</p>
-                <p><b>Overview: </b>{overview}</p>
-                <p><b>Team: </b>{team}</p>
-                <p><b>Tools: </b>{tools}</p>
-                <AnimateSharedLayout >
-                    <motion.ul layout initial={{ borderRadius: 25 }}>
-                        {items.map(item => (
-                            <Item key={item} />
-                        ))}
+                {/* <AnimateSharedLayout >
+                    <motion.ul layout >
+                        <motion.li layout onClick={toggleOpen} >
+                            <motion.div className="list_cont">
+                                <motion.div className="avatar" layout />
+                                <motion.div layout>role</motion.div>
+                            </motion.div>
+                            <AnimatePresence>
+                                {isOpen && <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} >
+                                    {role}
+                                </motion.div>}
+                            </AnimatePresence>
+                        </motion.li>
                     </motion.ul>
-                </AnimateSharedLayout>
-            </div>
+                </AnimateSharedLayout> */}
 
+                <div>{role}</div>
+                <div>{overview}</div>
+                <div>{team}</div>
+                <div>{tools}</div>
+                <div className="header_container">
+                    <h1 className="heading">{title}</h1>
+                    <div className="subheading">{role}</div>
+                </div>
+            </div>
         </motion.div>
     );
 };

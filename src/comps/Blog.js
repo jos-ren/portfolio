@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { content } from "../content.js";
+import { content } from "../server.js";
 
 const transition = { duration: 0.5, ease: "easeInOut" };
 
@@ -41,6 +41,7 @@ const Blog = () => {
                 <div>UI / UX</div>
                 <div>Design</div>
             </div>
+
             <motion.div
                 className="blog-list"
                 initial="initial"

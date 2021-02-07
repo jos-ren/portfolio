@@ -10,7 +10,6 @@ const Container = styled.div`
 padding: 0;
 margin: 0;
 height:auto;
-// width:100vw;
 display: flex;
 justify-content: center;
 align-items: center;

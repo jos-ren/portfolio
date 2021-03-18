@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useHistory, useParams } from "react-router-dom";
 import axios from 'axios';
 import styled from 'styled-components';
 import Blog from "../comps/Blog.js"
+
 
 const Container = styled.div`
 padding: 0;
@@ -16,24 +17,24 @@ display:flex;
 flex-direction:column;
 `;
 
-const blogVariants = {
-    enter: { transition: { staggerChildren: 0.1 } },
-    exit: { transition: { staggerChildren: 0.1 } }
-};
+// const blogVariants = {
+//     enter: { transition: { staggerChildren: 0.1 } },
+//     exit: { transition: { staggerChildren: 0.1 } }
+// };
 
 const Home = () => {
 
     const history = useHistory();
     const [posts, setPosts] = useState([]);
 
-    const CheckToken = async () => {
+    const GetAllPosts = async () => {
         const resp = await axios.get("https://josh-portfolio-backend.herokuapp.com/api/posts/");
-        setPosts({ ...resp.data.posts });
+        setPosts(resp.data.posts);
         console.log("posts", posts)
     }
 
     useEffect(() => {
-        CheckToken();
+        GetAllPosts();
     }, [])
 
     return <Container>
@@ -48,7 +49,8 @@ const Home = () => {
             initial="initial"
             animate="enter"
             exit="exit"
-            variants={blogVariants}>
+            // variants={blogVariants}
+            >
             {Object.keys(posts).map((o, i) => <Blog
                 key={i}
                 title={posts[o].title}
@@ -56,7 +58,6 @@ const Home = () => {
                 role={posts[o].role}
                 onClick={function () {
                     history.push("/posts/" + posts[o].id);
-                    console.log("iso", posts);
                 }}
             />
             )}

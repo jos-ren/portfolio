@@ -3,14 +3,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
-  width: 100vw;
   font-family: sans-serif;
 }
 
-.App {
-  width: 60vw;
+@media (min-width:320px) { 
+  .App {
+    width: 90vw;
+  }
 }
+
+@media (min-width:480px) { 
+  .App {
+    width: 90vw;
+  }
+}
+
+@media (min-width:600px) { 
+  .App {
+    width: 80vw;
+  }
+}
+
+@media (min-width:801px) { 
+  .App {
+    width: 75vw;
+  }
+}
+
+@media (min-width:1025px) { 
+  .App {
+    width: 60vw;
+  }
+}
+
 
 /* typography will go here */
 
@@ -21,7 +46,7 @@ body {
 .sort {
   display: flex;
   margin: 20px;
-  width:100%;
+  width: 100%;
 }
 
 /* grid */
@@ -30,7 +55,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   --auto-grid-min-size: 18rem;
   grid-gap: 1.5rem;
-  width:100%;
+  width: 100%;
 }
 
 

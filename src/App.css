@@ -1,0 +1,64 @@
+body {
+  background-color: #F8FAFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  width: 100vw;
+  font-family: sans-serif;
+}
+
+.App {
+  width: 60vw;
+}
+
+/* typography will go here */
+
+
+
+
+/* sort */
+.sort {
+  display: flex;
+  margin: 20px;
+  width:100%;
+}
+
+/* grid */
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  --auto-grid-min-size: 18rem;
+  grid-gap: 1.5rem;
+  width:100%;
+}
+
+
+/* individual posts */
+.post-preview {
+  background: snow;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgb(0 0 0 / 10%) 0 7px 25px 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.post-preview:hover {
+  box-shadow: rgb(50 50 93 / 25%) 0 30px 60px -12px;
+  transform: translateY(-5px);
+  -webkit-transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.post-preview__img {
+  max-width: 100%;
+  width: 100%;
+  min-width: 80%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.post-preview__text {
+  padding: 16px;
+}

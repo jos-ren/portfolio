@@ -38,10 +38,11 @@ const Home = () => {
     }, [])
 
     return <Container>
-        <div className="sort">
+        <div className="categories">
+            <input placeholder="Search..." />
             <div>All</div>
-            <div>Development</div>
-            <div>UI / UX</div>
+            <div>Front End</div>
+            <div>Ui</div>
             <div>Design</div>
         </div>
         <motion.div
@@ -49,8 +50,8 @@ const Home = () => {
             initial="initial"
             animate="enter"
             exit="exit"
-            // variants={blogVariants}
-            >
+        // variants={blogVariants}
+        >
             {Object.keys(posts).map((o, i) => <Blog
                 key={i}
                 title={posts[o].title}
